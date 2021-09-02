@@ -2,6 +2,10 @@ div{
     padding: 2px 2px 2px 2px;
 }
 
+h1 {
+  color: rgb(110, 16, 16);
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -10,8 +14,12 @@ div{
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: tan;
+  background-color: rgb(194, 29, 180);
   min-width: 160px;
+}
+
+.dropdown-content p {
+  color: rgb(253, 205, 74);
 }
 
 .dropdown:hover .dropdown-content {
