@@ -75,41 +75,85 @@
           Hello World
         </h1>
         <p class="subtitle">
-          My first website with <strong>Bulma</strong>!
+          My first website with <strong>Bulma</strong>{{now}}!
         </p>
 
-        <article class="message is-primary">
-            <div class="message-header">
+        <article class="message is-primary" :class= "{'is-hidden' : !visible}":style="`${visible ? '' : 'display:none'}`">
+            <div class="message-header" :style="` font-size: ${counter}px `" @click="grow()">
               <p>Primary</p>
-              <button class="delete" aria-label="delete"></button>
+              <button class="delete" aria-label="delete" @click="close()"></button>
             </div>
             <div class="message-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>
+                  Pellentesque risus mi</strong>, tempus quis placerat ut,
+                   porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla.
+                    Nullam gravida purus diam, et dictum <a>felis venenatis</a> 
+                    efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. 
+                    Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor 
+                    ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
             </div>
-          </article>
-        
-          <article class="message is-warning">
+        </article>
+
+        <article class="message is-warning">
             <div class="message-header">
-              <p>Oh no!</p>
+              <p>Oh No!</p>
               <button class="delete" aria-label="delete"></button>
             </div>
             <div class="message-body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>
+                  Pellentesque risus mi</strong>, tempus quis placerat ut,
+                   porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla.
+                    Nullam gravida purus diam, et dictum <a>felis venenatis</a> 
+                    efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. 
+                    Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor 
+                    ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
             </div>
-          </article>
+        </article>
 
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+      <script src="https://unpkg.com/vue@next"></script>
       <script>
+
+        const VM = {
+          data() {
+            return {
+              counter: 0,
+              now: new Date().toLocaleString(),
+              visible: true
+            }
+          },
+        
+
+        mounted() {
+          setInterval(() => this.now = new Date().toLocaleString(), 1000)
+        },
+        
+        methods: {
+          grow(){
+            this.counter += 10;
+          },
+          close(){
+            this.visible = false;
+          }
+        }
+       }
+        Vue.createApp(VM).mount('.container')
+
+
+
           let size = 72;
         $(".message-header p").click(function(){
-            size+=10;
+            size += 10;
             $(".message-header p").css({ fontSize: size });
         });
 
+        
         $(".delete").click(function(){
             $(this).closest(".message").slideUp();
         });
+
       </script>
+
 </body>
 </html>
