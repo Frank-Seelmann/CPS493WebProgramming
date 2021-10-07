@@ -2,10 +2,12 @@
 const session = {
     user: null,
     messages: [],
-    Login() {
+    Login(email, password) {
+
         this.user = {
             FirstName: "Frank",
-            LastName: "Seelmann",
+            LastName: email,
+            Password: password,
             id: 1,
         }
     }
