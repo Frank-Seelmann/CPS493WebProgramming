@@ -12,15 +12,17 @@
 
 <script>
 //Login is named, so it is inside {}
-import Session, { Login } from "../services/session";
+import Session from "../services/session";
 
 export default {
-    data: ()=>({
-        Session     //shorthand for Session: Session
-    }),
+    data(){
+        return({
+            Session
+        })
+    },
     methods: {
         login(){
-            Login();
+            this.Session.Login();
         }
     },
     computed: {

@@ -12,7 +12,7 @@
 </style>
 
 <script>
-import Nav from "./components/nav.vue";
+import Nav from "./components/Nav.vue";
 
 export default {
   components: {

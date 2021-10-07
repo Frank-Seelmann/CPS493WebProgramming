@@ -2,14 +2,13 @@
 const session = {
     user: null,
     messages: [],
+    Login() {
+        this.user = {
+            FirstName: "Frank",
+            LastName: "Seelmann",
+            id: 1,
+        }
+    }
 }
 
 export default session;
-
-export function Login(){
-    session.user = {
-        FirstName: "Frank",
-        LastName: "Seelmann",
-        id: 1,
-    }
-}

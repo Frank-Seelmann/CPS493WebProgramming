@@ -23,7 +23,7 @@
       <div class="navbar-start">
         <a class="navbar-item" href="/"> Home </a>
 
-        <a class="navbar-item"> Documentation </a>
+        <a class="navbar-item" href="/Feed"> Feed </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link"> More </a>
