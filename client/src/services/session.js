@@ -1,16 +1,17 @@
-//global stuff that stays with the current user
 const session = {
     user: null,
     messages: [],
-    Login(email, password) {
+    Login(email, password){
 
         this.user = {
-            FirstName: "Frank",
+            FirstName: 'Moshe',
             LastName: email,
             Password: password,
-            id: 1,
+            id: 613,
         }
     }
-}
+};
 
 export default session;
+
+//export function

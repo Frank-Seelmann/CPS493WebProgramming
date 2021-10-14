@@ -1,11 +1,14 @@
 <template>
   <div class="section">
-    <h1 class="title">Feed Page.</h1>
+      <h1 class="title">
+          Feed Page
+      </h1>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+}
 </script>
 
 <style>
