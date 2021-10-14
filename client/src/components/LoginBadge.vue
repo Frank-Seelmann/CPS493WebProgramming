@@ -28,7 +28,7 @@ export default {
     },
     computed:{
         name(){
-            return this.Session.user.FirstName + ' ' + this.Session.user.LastName;
+            return this.Session.user.firstName + ' ' + this.Session.user.lastName;
         }
     }
 }
