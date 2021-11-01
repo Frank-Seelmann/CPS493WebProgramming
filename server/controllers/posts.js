@@ -17,7 +17,10 @@ app
         res.send(model.Get(req.params.id));
     })
     .post("/", (req, res, next) =>{
-        const newPost = model.Add(req,body)
+        console.log(req.headers);
+        console.log(req.method);
+
+        const newPost = model.Add(req.body);
 
         res.status(201).send(newPost);
     })
