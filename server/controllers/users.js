@@ -14,23 +14,19 @@ app
         //const user = model.Login(req.body.handle,req.body.password);
         //res.send(user);
 
-        model.Login(req.body.handle, req.body.password, (err,x) => {
-            if(err){
-                next(err);
-            }
-            res.send(user);
-        });
+        model.Login(req.body.handle, req.body.password)
+            .then(user => {
+                res.send(user);
+        })
+        .catch(next)
     })
 
     .post("/register", (req, res, next) =>{
-        const user = req.body;
-
-        model.Add(user, (err,user) => {
-            if(err){
-                next(err);
-            }
-            res.status(201).send(user);
-        });
+        model.Add(req.body)
+            .then(user=>{
+                res.status(201).send(user);
+        })
+        .catch(next)
     })
 
 module.exports = app; 
