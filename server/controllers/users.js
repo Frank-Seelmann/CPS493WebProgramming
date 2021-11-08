@@ -11,10 +11,18 @@ app
         console.log("Outer function: 2")
     })*/
     .get("/", (req, res, next) => {
-        res.send(model.GetAll());
+        model.GetAll()
+        .then(user => {
+            res.send(user);
+        })
+        .catch(next)
     })
     .get("/:user_id", (req, res, next) => {
-        res.send(model.Get(req.params.user_id));
+        model.Get(req.params.user_id)
+        .then(user => {
+            res.send(user);
+        })
+        .catch(next)
     })
     .post("/login", (req, res, next) => {
         //const user = model.Login(req.body.handle,req.body.password);
@@ -31,6 +39,13 @@ app
         model.Add(req.body)
             .then(user => {
                 res.status(201).send(user);
+            })
+            .catch(next)
+    })
+    .post("/seed", (req, res, next) => {
+        model.Seed()
+            .then(user => {
+                res.status(201).send("Created");
             })
             .catch(next)
     })
