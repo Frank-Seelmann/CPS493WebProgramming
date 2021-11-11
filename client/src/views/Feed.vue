@@ -22,8 +22,11 @@ import Post from '../components/Post.vue';
 export default {
   components: { Post },
   data: ()=> ({
-    posts: GetWall(session.user.handle)
-  })
+    posts: []
+  }),
+  async mounted(){
+    this.posts = await GetWall(session.user.handle)
+  }
 };
 
 </script>
