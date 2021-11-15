@@ -19,11 +19,12 @@ app
         Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
     */
 
-    .use( (req, res, next) => {
-        res.setHeader('Access-Control-Allow-Origin','*');
-        res.setHeader('Access-Control-Allow-Methods','*');
-        res.setHeader('Access-Control-Allow-Headers','*');
-    })
+    .use( (req, res, next) =>{
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', '*');
+        res.setHeader('Access-Control-Allow-Headers', '*');
+        next();
+    } )
 
     .use(express.json())
     .use('/users', usersController )
