@@ -19,13 +19,17 @@ const routes = [
     {
         path: '/about',
         name: 'About',
-        //"loose coupling" - only downloaded when link is clicked
-        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue') 
+        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     },
     {
         path: '/login',
         name: 'Login',
         component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+    },
+    {
+        path: '/users',
+        name: 'Users',
+        component: () => import(/* webpackChunkName: "admin" */ '../views/Users.vue')
     },
 ]
 
