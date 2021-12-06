@@ -1,25 +1,24 @@
-//import Session from "../services/session";
+import Session from "../services/session";
 
-const Session = {};
 
-function login(){
-    this.$router.push('/login');
+function login() {
+    Session.Error('Not impemented yet');
     //this.Session.Login();
 }
 
-function name(){
-    return this.Session.user.firstName + ' ' + this.Session.user.lastName;
+function name() {
+    return Session.user.firstName + ' ' + Session.user.lastName;
 }
 
-export default ()=> !Session.user ? 
+export default () => !Session.user ?
     <div class="buttons">
-          <a class="button is-primary">
+        <a class="button is-primary">
             <strong>Sign up</strong>
-          </a>
-          <a class="button is-light" click="login">
+        </a>
+        <a class="button is-light" onClick={login}>
             Log in
-          </a>
+        </a>
     </div> :
     <div>
-        Hello {name} 
+        Hello {name()}
     </div>
